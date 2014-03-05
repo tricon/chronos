@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 style="text-align: center;"><%= @drive %> Blood Drive</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @drive_appointment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@drive_appointment.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+          <% @drive_appointment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= simple_form_for [@drive, @drive_appointment], wrapper: :bootstrap3_horizontal, defaults: { right_column_html: { class: "col-sm-4" }, label_html: { class: "col-sm-offset-2 col-sm-2 control-label" }}, html: { class: "form-horizontal", style: "margin-top: 20px;", role: "form" } do |f| -%>
+    <%= f.input :drive_slot_id, label: "Slot", as: :select, collection: @drive.drive_slots.available.map { |ds| [ds, ds.id] } %>
+    <%= f.association :user do |u| -%>
+      <%= u.input :name %>
+      <%= u.input :email %>
+      <%= u.input :phone %>
+    <%- end -%>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6"><%= f.submit class: "btn btn-default pull-right" %></div>
+    </div>
+  <%- end -%>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="subtext">We may send you follow up emails regarding your appointment</p>
+    </div>
+  </div>
+</div>

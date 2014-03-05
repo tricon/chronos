@@ -12,9 +12,14 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+     <%= render 'layouts/messages' %>
+     <%= yield %>
     </main>
+
+    <footer>
+      <div class="byline">brought to you by legacy program 112 — <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span> all heart <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span></div>
+    </footer>
   </body>
 </html>

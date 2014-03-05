@@ -1,24 +1,40 @@
 class DriveAppointmentsController < ApplicationController
+  respond_to :html
+  before_action :set_drive, only: [:new, :create, :update]
   before_action :set_drive_appointment, only: [:update]
   before_action :set_user, only: [:create, :update]
+
+
+  def new
+    @drive_appointment = @drive.drive_appointments.where(user_id: current_user.try(:id)).first || @drive.drive_appointments.build
+    @drive_appointment.user = current_user || User.new
+  end
 
   def create
     @drive_appointment = DriveAppointment.new(drive_appointment_params)
     @drive_appointment.user = @user
 
-    @drive_appointment.save
+    if @drive_appointment.save
+      UserMailer.appointment_confirmation(@user, @drive_appointment).deliver
+    end
 
-    redirect_to confirmation_drive_path(@drive_appointment.drive)
+    respond_with(@drive_appointment, location: confirmation_drive_path(@drive_appointment.drive))
   end
 
   def update
-    @drive_appointment.update(drive_appointment_params)
+    if @drive_appointment.update(drive_appointment_params)
+      UserMailer.appointment_confirmation(@user, @drive_appointment).deliver
+    end
 
-    redirect_to confirmation_drive_path(@drive_appointment.drive)
+    respond_with(@drive_appointment, location: confirmation_drive_path(@drive_appointment.drive))
   end
 
 
   private
+
+  def set_drive
+    @drive = Drive.find(params[:drive_id])
+  end
 
   def set_drive_appointment
     @drive_appointment = DriveAppointment.find(params[:id])

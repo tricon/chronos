@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :drive_appointments, dependent: :destroy
 
-  validates_presence_of :name
+  validates :name, :email, presence: true
 
   def self.create_with_omniauth(auth)
     create! do |user|

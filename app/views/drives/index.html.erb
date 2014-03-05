@@ -1,9 +1,17 @@
 <div class="container">
+  <div class="jumbotron">
+    <h1>Save a Life</h1>
+    <p>Set an appointment to donate blood. <span class="underline"><span>You make a difference</span></span>.</p>
+  </div>
+
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h3 class="text-align: center;">Blood Drives</h3>
+    <div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+      <h3 style="text-align: center;">Blood Drives</h3>
       <%- @drives.each do |drive| -%>
-        <%= link_to drive, drive %><br/>
+        <div class="drive">
+          <h4 style="margin-bottom: 0;"><%= link_to drive, new_drive_drive_appointment_path(drive)%></h4>
+          <span class="dates"><%= drive.time_frame %></span>
+        </div>
       <%- end -%>
     </div>
   </div>

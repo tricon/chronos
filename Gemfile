@@ -34,6 +34,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'letter_opener_web', '~> 1.1.0'
 end
 group :development, :test do
   gem 'factory_girl_rails'

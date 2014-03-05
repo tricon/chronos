@@ -1,0 +1,79 @@
+a {
+  color: red;
+  text-decoration: none;
+  &:hover {
+    color: red;
+    text-decoration: underline;
+  }
+}
+
+.nav > li > a, .navbar-brand {
+  color: red;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: red;
+  }
+}
+
+main {
+  padding: 0;
+}
+
+footer {
+  @extend .navbar;
+  @extend .navbar-fixed-bottom;
+  min-height: 20px;
+  text-align: center;
+  color: white;
+  background-color: red;
+
+  .byline {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-variant: small-caps;
+  }
+}
+
+.container {
+  .jumbotron {
+    text-align: center;
+    background-color: transparent;
+    border-bottom: 1px solid #DCDCDC;
+    border-radius: 0;
+    h1 {
+      text-align: center;
+      color: red;
+    }
+    .underline {
+      color: red;
+      text-decoration: underline;
+      > span {
+        color: rgb(51, 51, 51);
+      }
+    }
+  }
+}
+
+.btn {
+  border-radius: 0;
+  &.btn-default {
+    color: white;
+    background-color: red;
+  }
+}
+
+.subtext {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 80%;
+  font-style: italic;
+}
+
+.drive {
+  @extend h4;
+  margin-top: 20px;
+  .dates {
+    font-size: 60%;
+  }
+}

@@ -17,6 +17,13 @@ class Drive < ActiveRecord::Base
   alias_attribute :to_s, :name
 
 
+  def time_frame
+    earliest_date = drive_dates.order(starts_at: :asc).first
+    latest_date = drive_dates.order(ends_at: :desc).first
+    "#{earliest_date.starts_at.to_s(:long_ordinal_date)} - #{latest_date.ends_at.to_s(:long_ordinal_date)}"
+  end
+
+
   private
 
   def generate_slots
