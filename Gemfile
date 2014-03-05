@@ -20,6 +20,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'just-datetime-picker'
+gem 'rails_12factor', group: :production
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
