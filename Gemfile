@@ -18,12 +18,15 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'just-datetime-picker'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+  gem 'guard-livereload'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'

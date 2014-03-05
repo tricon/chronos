@@ -38,7 +38,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-  
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -48,4 +48,17 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+end
+
+
+def model
+  described_class.to_s.underscore.gsub(/_controller$/, "").singularize.to_sym
+end
+
+def models
+  model.to_s.pluralize.to_sym
+end
+
+def model_class
+  model.to_s.classify.constantize
 end

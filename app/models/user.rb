@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   rolify
+
+  has_many :drive_appointments, dependent: :destroy
+
   validates_presence_of :name
 
   def self.create_with_omniauth(auth)
@@ -12,5 +15,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end

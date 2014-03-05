@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      drive_appointment:
+        create: Set appointment
+        update: Update appointment

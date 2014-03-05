@@ -12,3 +12,5 @@ YAML.load(ENV['ROLES']).each do |role|
   Role.find_or_create_by_name(role)
   puts 'role: ' << role
 end
+
+AdminUser.where(email: "david.fendley@elemental-imaging.com").first_or_create(password: "letmein1", password_confirmation: "letmein1")
