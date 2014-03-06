@@ -9,9 +9,11 @@ BloodDrive::Application.routes.draw do
   resources :drives, only: [:index] do
     member do
       get :confirmation
+      get :notice
     end
-    resources :drive_appointments, path: "appointments", only: [:new, :create, :update]
+    resources :drive_appointments, path: "appointments", only: [:new, :create]
   end
+  resources :drive_appointments, path: "appointments", only: [:index]
 
   get "/auth/:provider/callback" => "sessions#create"
   get "/signin" => "sessions#new", :as => :signin

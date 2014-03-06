@@ -11,6 +11,12 @@
       <%= link_to 'Blood Drives', root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Appointments', drive_appointments_path %></li>
+        <% end %>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <%= render 'layouts/navigation_links' %>
       </ul>

@@ -4,7 +4,7 @@ class DriveAppointment < ActiveRecord::Base
 
   has_one :drive, through: :drive_slot
 
-  delegate :to_s, to: :drive_slot
+  delegate :to_s, :slot_at, to: :drive_slot
 
   accepts_nested_attributes_for :user, allow_destroy: true
 
