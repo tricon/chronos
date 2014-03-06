@@ -1,5 +1,6 @@
 class DriveAppointmentsController < ApplicationController
   respond_to :html
+  before_action :store_location, only: [:show]
   before_action :set_drive, only: [:new, :create, :update]
   before_action :set_drive_appointment, only: [:update]
   before_action :set_user, only: [:create, :update]
