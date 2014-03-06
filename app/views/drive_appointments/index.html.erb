@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Appointments</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+      <h3 style="text-align: center;">Blood Drives</h3>
+      <%- if @drive_appointments.present? -%>
+        <%- @drive_appointments.group_by(&:drive).each do |drive, drive_appointments| -%>
+          <div class="drive">
+            <h4 style="margin-bottom: 0;"><%= drive %></h4>
+            <%- drive_appointments.each do |drive_appointment| -%>
+              <div class="appointment"><%= drive_appointment.slot_at.to_s(:long_ordinal_with_time) %></div>
+            <%- end -%>
+          </div>
+        <%- end -%>
+      <%- else -%>
+        You have not set any appointments. <%= link_to "Save a life", root_path %>.
+      <%- end -%>
+    </div>
+  </div>
+</div>
