@@ -1,0 +1,7 @@
+<h1>Blood Donation Report</h1>
+
+<%- @drives.each do |drive| -%>
+  <h2><%= drive.name %></h2>
+
+  <p>Slots filled: <%= drive.slots_filled %>/<%= drive.max_slots %></p>
+<%- end -%>
