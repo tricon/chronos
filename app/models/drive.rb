@@ -6,8 +6,11 @@ class Drive < ActiveRecord::Base
     end
   end
   has_many :drive_appointments, through: :drive_slots
+  has_many :drive_locations, dependent: :destroy
 
   accepts_nested_attributes_for :drive_dates, allow_destroy: true
+  accepts_nested_attributes_for :drive_locations, allow_destroy: true
+
 
   validates :recurs_every, presence: true
 

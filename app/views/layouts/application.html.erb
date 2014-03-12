@@ -9,17 +9,19 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-
     <main role="main">
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+
      <%= render 'layouts/messages' %>
      <%= yield %>
     </main>
 
     <footer>
-      <div class="byline">brought to you by legacy program 112 — <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span> all heart <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span></div>
+      <div class="container">
+        <div class="byline">brought to you by legacy program 112 — <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span> all heart <span class="glyphicon glyphicon-heart" style="font-size: 10px;"></span></div>
+      </div>
     </footer>
   </body>
 </html>

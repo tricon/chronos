@@ -5,12 +5,23 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
-      <h3 style="text-align: center;">Blood Drives</h3>
+    <div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+      <h2 style="text-align: center;">Blood Drives</h2>
       <%- @drives.each do |drive| -%>
         <div class="drive">
-          <h4 style="margin-bottom: 0;"><%= link_to drive, new_drive_drive_appointment_path(drive)%></h4>
+          <h3 style="margin-bottom: 0;"><%= link_to drive, new_drive_drive_appointment_path(drive) %></h3>
           <span class="dates"><%= drive.time_frame %></span>
+
+          <%- drive.drive_locations.each do |drive_location| -%>
+            <%= hidden_field_tag "drive_location_address-#{drive_location.id}", drive_location.complete_address, class: "drive-location-address", "data-drive-location-id" => drive_location.id %>
+
+            <div class="location">
+              <h5><%= drive_location.complete_address %></h5>
+              <div id="drive_location-<%= drive_location.id %>" class="location-map"></div>
+            </div>
+          <%- end -%>
+
+          <p style="margin-top: 20px; text-align: left; font-weight: normal; font-size: 80%;"><%= drive.description.html_safe %></p>
         </div>
       <%- end -%>
     </div>

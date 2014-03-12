@@ -2,7 +2,7 @@
 @import "bootstrap";
 @import "bootstrap_blood";
 
-html, body, main { height: 100%; }
+html, body { height: 100%; }
 
 // make all images responsive by default
 img {
@@ -36,11 +36,8 @@ img {
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
-  @extend .container;
-  padding-bottom: 80px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
-  }
+}
 section {
   @extend .row;
   margin-top: 20px;
