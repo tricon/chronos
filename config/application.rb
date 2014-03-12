@@ -11,7 +11,7 @@ module BloodDrive
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
-
+      g.scaffold_controller "scaffold_controller"
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
 
