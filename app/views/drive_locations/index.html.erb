@@ -1,0 +1,41 @@
+<h1>Listing drive_locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Address extended</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Country</th>
+      <th>Drive</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drive_locations.each do |drive_location| %>
+      <tr>
+        <td><%= drive_location.name %></td>
+        <td><%= drive_location.address %></td>
+        <td><%= drive_location.address_extended %></td>
+        <td><%= drive_location.city %></td>
+        <td><%= drive_location.state %></td>
+        <td><%= drive_location.zip %></td>
+        <td><%= drive_location.country %></td>
+        <td><%= drive_location.drive %></td>
+        <td><%= link_to 'Show', drive_location %></td>
+        <td><%= link_to 'Edit', edit_drive_location_path(drive_location) %></td>
+        <td><%= link_to 'Destroy', drive_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drive location', new_drive_location_path %>

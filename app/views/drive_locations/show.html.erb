@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @drive_location.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @drive_location.address %>
+</p>
+
+<p>
+  <strong>Address extended:</strong>
+  <%= @drive_location.address_extended %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @drive_location.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @drive_location.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @drive_location.zip %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @drive_location.country %>
+</p>
+
+<p>
+  <strong>Drive:</strong>
+  <%= @drive_location.drive %>
+</p>
+
+<%= link_to 'Edit', edit_drive_location_path(@drive_location) %> |
+<%= link_to 'Back', drive_locations_path %>

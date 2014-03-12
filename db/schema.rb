@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305105228) do
+ActiveRecord::Schema.define(version: 20140311233311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(version: 20140305105228) do
   end
 
   add_index "drive_dates", ["drive_id"], name: "index_drive_dates_on_drive_id", using: :btree
+
+  create_table "drive_locations", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "address_extended"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.integer  "drive_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "drive_locations", ["drive_id"], name: "index_drive_locations_on_drive_id", using: :btree
 
   create_table "drive_slots", force: true do |t|
     t.datetime "slot_at"

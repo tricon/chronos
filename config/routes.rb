@@ -1,4 +1,6 @@
 BloodDrive::Application.routes.draw do
+  resources :drive_locations, only: [:show]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
