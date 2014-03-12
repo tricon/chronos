@@ -26,6 +26,14 @@ class Drive < ActiveRecord::Base
     "#{earliest_date.starts_at.to_s(:long_ordinal_date)} - #{latest_date.ends_at.to_s(:long_ordinal_date)}"
   end
 
+  def max_slots
+    drive_slots.count * appointments_available_per_slot
+  end
+
+  def slots_filled
+    drive_appointments.count
+  end
+
 
   private
 

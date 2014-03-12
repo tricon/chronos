@@ -10,6 +10,10 @@ class DriveSlot < ActiveRecord::Base
     slot_at.to_s(:long_ordinal_with_time)
   end
 
+  def fill_count
+    drive_appointments.size
+  end
+
 
   protected
 

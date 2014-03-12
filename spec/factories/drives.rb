@@ -17,5 +17,17 @@ FactoryGirl.define do
         create_list(:drive_location, evaluator.locations_count, drive: drive)
       end
     end
+
+    factory :drive_with_slots_and_appointments do
+      appointments_available_per_slot 10
+
+      ignore do
+        drive_slots_count 5
+      end
+
+      after(:create) do |drive, evaluator|
+        create_list(:drive_slot, evaluator.drive_slots_count, drive: drive)
+      end
+    end
   end
 end
