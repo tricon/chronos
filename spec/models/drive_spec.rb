@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Drive do
-  before(:all) do
+  before(:each) do
     @drive = create(:drive_with_slots_and_appointments)
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Home page is viewed" do
   background do
-    create(:drive_with_location)
+    @drive = create(:drive_with_location)
   end
 
 

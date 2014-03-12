@@ -5,7 +5,7 @@ describe ReportMailer do
   include EmailSpec::Matchers
 
   context "the donation report is generated and delivered" do
-    before(:all) do
+    before(:each) do
       @drive = create(:drive_with_slots_and_appointments)
       @email = ReportMailer.donor_report(['rebeccakay@love.com', 'tricon@me.com'])
     end
