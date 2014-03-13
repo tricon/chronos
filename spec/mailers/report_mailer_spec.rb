@@ -7,11 +7,11 @@ describe ReportMailer do
   context "the donation report is generated and delivered" do
     before(:each) do
       @drive = create(:drive_with_slots_and_appointments)
-      @email = ReportMailer.donor_report(['rebeccakay@love.com', 'tricon@me.com'])
+      @email = ReportMailer.donor_report(['rebeccakay@love.com', 'tricon@me.com', 'mrising2@me.com'])
     end
 
     it "should send the report to Rebecca and David" do
-      @email.should deliver_to(['rebeccakay@love.com', 'tricon@me.com'])
+      @email.should deliver_to(['rebeccakay@love.com', 'tricon@me.com', 'mrising2@me.com'])
     end
 
     it "should have a subject with the current date" do
