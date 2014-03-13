@@ -10,7 +10,7 @@ FactoryGirl.define do
     end
 
     after(:create) do |drive_slot, evaluator|
-      create_list(:drive_appointment, evaluator.drive_appointments_count, drive_slot: drive_slot)
+      create_list(:drive_appointment, evaluator.drive_appointments_count, drive_slot: drive_slot, user: create(:user))
     end
   end
 end

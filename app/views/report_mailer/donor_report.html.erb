@@ -3,5 +3,17 @@
 <%- @drives.each do |drive| -%>
   <h2><%= drive.name %></h2>
 
-  <p>Slots filled: <%= drive.slots_filled %>/<%= drive.max_slots %></p>
+  <h3>Slots filled: <%= drive.slots_filled %>/<%= drive.max_slots %></h3>
+
+  <%- if drive.drive_appointments.present? -%>
+    <h4>Details:</h4>
+    <%- drive.drive_appointments.group_by { |drive_appointment| drive_appointment.drive_slot.to_s }.each do |drive_slot, drive_appointments| -%>
+      <strong><%= drive_slot %></strong>
+      <ol>
+        <%- drive_appointments.each do |drive_appointment| -%>
+          <li><%= drive_appointment.user.name %></li>
+        <%- end -%>
+      </ol>
+    <%- end -%>
+  <%- end -%>
 <%- end -%>

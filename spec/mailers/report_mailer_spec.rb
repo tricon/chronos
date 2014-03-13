@@ -25,5 +25,13 @@ describe ReportMailer do
     it "should contain the blood drive filled slots and max slots count" do
       @email.should have_body_text("Slots filled: #{@drive.slots_filled}/#{@drive.max_slots}")
     end
+
+    it "should contain the blood drive slot time" do
+      @email.should have_body_text("March 4th, 2014 5:43 PM PST")
+    end
+
+    it "should contain the blood drive slot user" do
+      @email.should have_body_text("Gordon Freeman")
+    end
   end
 end
