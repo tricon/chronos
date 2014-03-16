@@ -4,4 +4,12 @@ Thank you for saving lives. Your appointment is as follows:
 
 <%= @drive_appointment %>
 
+<%- if @drive_appointment.drive.drive_locations.present? -%>
+Your location is: <%= @drive_appointment.drive.drive_locations.first.complete_address %>
+<%- end -%>
+
 If you have any questions, please contact donate112@icloud.com.
+
+Please spread the word about your blood drive.
+
+http://www.blooddrive.me

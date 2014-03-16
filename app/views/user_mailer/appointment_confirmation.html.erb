@@ -5,5 +5,15 @@
 
   <p><span style="font-family: Helvetica, sans-serif; font-size: 90%; font-weight: bold;"><%= @drive_appointment %></span></p>
 
+  <p>
+    <%- if @drive_appointment.drive.drive_locations.present? -%>
+      Your location is: <span style="font-family: Helvetica, sans-serif; font-size: 90%; font-weight: bold;"><%= @drive_appointment.drive.drive_locations.first.complete_address %></span>
+    <%- end -%>
+  </p>
+
   <p style="font-family: Helvetica, sans-serif; font-size: 90%;">If you have any questions, please contact <a href="mailto:donate112@icloud.com" style="color: red;">donate112@icloud.com</a>.</p>
+
+  <h3 style="color: red;">Please spread the word about your blood drive.</h3>
+
+  <h4><a href="http://www.blooddrive.me" style="color: red;">http://www.blooddrive.me</a></h4>
 </div>
