@@ -17,7 +17,7 @@ ActiveAdmin.register Drive do
         drive.drive_locations.map(&:complete_address).join("<br/>").html_safe
       end
       row :drive_slots do |drive|
-        html = ""
+        html = "<h3>Slots filled: #{drive.slots_filled}/#{drive.max_slots}</h3>"
         drive.drive_slots.each do |drive_slot|
           html += "- #{drive_slot}<br/>"
           drive_slot.drive_appointments.each { |drive_appointment| html += "&nbsp;&nbsp; #{drive_appointment.user.name}<br/>" }
