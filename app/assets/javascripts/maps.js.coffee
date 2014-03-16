@@ -4,8 +4,8 @@ $ ->
 
     map = GMaps({
       div: '#drive_location-' + $(this).data('drive-location-id'),
-      lat: -12.043333,
-      lng: -77.028333
+      lat: 34.0204989,
+      lng: -118.4117325
     })
 
     GMaps.geocode({
