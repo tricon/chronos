@@ -8,6 +8,8 @@ Thank you for saving lives. Your appointment is as follows:
 Your location is: <%= @drive_appointment.drive.drive_locations.first.complete_address %>
 <%- end -%>
 
+<%= strip_tags(@drive_appointment.drive.description.gsub(/<a href="(.*?)">(.*?)<\/a>/, '\2: \1')) %>
+
 If you have any questions, please contact donate112@icloud.com.
 
 Please spread the word about your blood drive.

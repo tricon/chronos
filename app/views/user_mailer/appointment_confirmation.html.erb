@@ -1,3 +1,7 @@
+<style type="text/css" media="screen">
+  a, a:visited { color: red; }
+</style>
+
 <div style="margin: 0 auto; width: 600px;">
   <h3 style="padding: 5px 0; text-align: center; color: white; font-family: Helvetica, sans-serif; background-color: red;"><%= @drive_appointment.drive.name %> Blood Drive Appointment Confirmation</h3>
 
@@ -10,6 +14,8 @@
       Your location is: <span style="font-family: Helvetica, sans-serif; font-size: 90%; font-weight: bold;"><%= @drive_appointment.drive.drive_locations.first.complete_address %></span>
     <%- end -%>
   </p>
+
+  <p style="margin-top: 20px; text-align: left; font-weight: normal; font-size: 80%;"><%= @drive_appointment.drive.description.html_safe %></p>
 
   <p style="font-family: Helvetica, sans-serif; font-size: 90%;">If you have any questions, please contact <a href="mailto:donate112@icloud.com" style="color: red;">donate112@icloud.com</a>.</p>
 
