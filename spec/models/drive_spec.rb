@@ -16,4 +16,11 @@ describe Drive do
   it "calculates the number of slots filled" do
     expect(@drive.slots_filled).to eq(@drive.drive_appointments.count)
   end
+
+  it "selects the number of available drive slots" do
+    @drive.drive_slots.each { |ds| 2.times { ds.drive_appointments.create!(user_id: 1) }}
+    drive_slot = @drive.drive_slots.create(slot_at: "2014-03-04 17:43:41")
+
+    expect(@drive.drive_slots.available.to_a).to eq([drive_slot])
+  end
 end
