@@ -3,6 +3,16 @@ ActiveAdmin.register Drive do
     drive_dates_attributes: [:id, :starts_at_date, :starts_at_time_hour, :starts_at_time_minute, :ends_at_date, :ends_at_time_hour, :ends_at_time_minute, :_destroy],
     drive_locations_attributes: [:id, :address, :address_extended, :city, :state, :zip]
 
+  index do
+    column :name do |drive|
+      link_to(drive.name, admin_drive_path(drive))
+    end
+    column :recurs_every
+    column :appointments_available_per_slot
+    column :overflow_appointments_available_per_slot
+    actions
+  end
+
   show do |drive|
     attributes_table do
       row :id
