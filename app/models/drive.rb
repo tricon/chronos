@@ -2,7 +2,7 @@ class Drive < ActiveRecord::Base
   has_many :drive_dates, dependent: :destroy
   has_many :drive_slots, -> { order("drive_slots.slot_at ASC") }, dependent: :destroy do
     def available
-      where(DriveSlot.arel_table[:drive_appointments_count].lt(proxy_association.owner.total_appointments_available_including_overflow))
+      where(DriveSlot.arel_table[:drive_appointments_count].lt(proxy_association.owner.total_appointments_available_per_slot))
     end
   end
   has_many :drive_appointments, through: :drive_slots
