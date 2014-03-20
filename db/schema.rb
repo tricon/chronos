@@ -77,10 +77,12 @@ ActiveRecord::Schema.define(version: 20140320040359) do
     t.string   "state"
     t.string   "zip"
     t.string   "country"
+    t.integer  "drive_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "drive_id"
   end
+
+  add_index "drive_locations", ["drive_id"], name: "index_drive_locations_on_drive_id", using: :btree
 
   create_table "drive_slots", force: true do |t|
     t.datetime "slot_at"
