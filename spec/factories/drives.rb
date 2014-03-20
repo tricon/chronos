@@ -27,6 +27,7 @@ FactoryGirl.define do
 
     factory :drive_with_slots_and_appointments do
       appointments_available_per_slot 2
+      overflow_appointments_available_per_slot 2
 
       ignore do
         drive_slots_count 2

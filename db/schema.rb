@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311233311) do
+ActiveRecord::Schema.define(version: 20140320040359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,12 +93,13 @@ ActiveRecord::Schema.define(version: 20140311233311) do
   add_index "drive_slots", ["drive_id"], name: "index_drive_slots_on_drive_id", using: :btree
 
   create_table "drives", force: true do |t|
-    t.string   "name",                            null: false
+    t.string   "name",                                                 null: false
     t.text     "description"
-    t.string   "recurs_every",                    null: false
+    t.string   "recurs_every",                                         null: false
     t.integer  "appointments_available_per_slot"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "overflow_appointments_available_per_slot", default: 0, null: false
   end
 
   create_table "roles", force: true do |t|

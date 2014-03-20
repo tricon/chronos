@@ -23,7 +23,7 @@ describe ReportMailer do
     end
 
     it "should contain the blood drive filled slots and max slots count" do
-      @email.should have_body_text("Slots filled: #{@drive.slots_filled}/#{@drive.max_slots}")
+      @email.should have_body_text("Slots filled: #{@drive.slots_filled}/#{@drive.total_appointments_available}")
     end
 
     it "should contain the blood drive slot time" do
