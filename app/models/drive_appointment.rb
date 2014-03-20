@@ -15,6 +15,6 @@ class DriveAppointment < ActiveRecord::Base
   protected
 
   def max_number_of_appointments
-    errors.add(:drive_slot, "max number of appointments already met") if drive_slot.drive_appointments.size >= drive.appointments_available_per_slot
+    errors.add(:drive_slot, "max number of appointments already met") if drive_slot.drive_appointments.size >= drive.total_appointments_available_per_slot
   end
 end
