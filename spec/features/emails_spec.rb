@@ -20,7 +20,7 @@ feature "Emails rake tasks" do
     end
 
     scenario "is generated and sent" do
-      ReportMailer.should_receive(:donor_report).with(['rebeccakay@love.com', 'tricon@me.com', 'mrising2@me.com']).and_return(double("ReportMailer", deliver: true))
+      ReportMailer.should_receive(:donor_report).with(['team@lp112.be']).and_return(double("ReportMailer", deliver: true))
 
       run_rake_task
     end
