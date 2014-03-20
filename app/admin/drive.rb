@@ -1,5 +1,5 @@
 ActiveAdmin.register Drive do
-  permit_params :name, :description, :recurs_every, :appointments_available_per_slot,
+  permit_params :name, :description, :recurs_every, :appointments_available_per_slot, :overflow_appointments_available_per_slot,
     drive_dates_attributes: [:id, :starts_at_date, :starts_at_time_hour, :starts_at_time_minute, :ends_at_date, :ends_at_time_hour, :ends_at_time_minute, :_destroy],
     drive_locations_attributes: [:id, :address, :address_extended, :city, :state, :zip]
 
@@ -10,6 +10,7 @@ ActiveAdmin.register Drive do
       row :description
       row :recurs_every
       row :appointments_available_per_slot
+      row :overflow_appointments_available_per_slot
       row :drive_dates do |drive|
         drive.drive_dates.map(&:to_s).join("<br/>").html_safe
       end
@@ -37,6 +38,7 @@ ActiveAdmin.register Drive do
       f.input :description
       f.input :recurs_every, as: :select, collection: ['15 minutes', '30 minutes', '1 hour', '2 hours', '4 hours', '8 hours']
       f.input :appointments_available_per_slot
+      f.input :overflow_appointments_available_per_slot
     end
     f.inputs do
       f.has_many :drive_dates, allow_destroy: true, heading: "Dates" do |dd|
