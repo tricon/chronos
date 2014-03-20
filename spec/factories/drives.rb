@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "It's so fun!"
     recurs_every "15 minutes"
 
+
     ignore do
       drive_dates_count 2
     end
@@ -25,10 +26,10 @@ FactoryGirl.define do
     end
 
     factory :drive_with_slots_and_appointments do
-      appointments_available_per_slot 10
+      appointments_available_per_slot 2
 
       ignore do
-        drive_slots_count 5
+        drive_slots_count 2
       end
 
       after(:create) do |drive, evaluator|
