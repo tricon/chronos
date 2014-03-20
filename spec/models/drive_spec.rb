@@ -6,10 +6,10 @@ describe Drive do
   end
 
   it "calculates the number of maximum slots available" do
-    expect(@drive.max_slots).to eq(50)
+    expect(@drive.max_slots).to eq(@drive.drive_slots.count * @drive.appointments_available_per_slot)
   end
 
   it "calculates the number of slots filled" do
-    expect(@drive.slots_filled).to eq(10)
+    expect(@drive.slots_filled).to eq(@drive.drive_appointments.count)
   end
 end
