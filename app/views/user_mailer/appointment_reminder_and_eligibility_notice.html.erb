@@ -1,0 +1,39 @@
+<style type="text/css" media="screen">
+  a, a:visited { color: red; }
+</style>
+
+<div style="margin: 0 auto; width: 600px;">
+  <h3 style="padding: 5px 0; text-align: center; color: white; font-family: Helvetica, sans-serif; background-color: red;"><%= @drive_appointment.drive.name %> Blood Drive Appointment Reminder</h3>
+
+  <span style="font-family: Helvetica, sans-serif;text-align: left; font-weight: normal; font-size: 80%;"><span style="color: red;">Thank you for saving lives</span>. Your appointment is:</span>
+
+  <p><span style="font-family: Helvetica, sans-serif; font-size: 90%; font-weight: bold;"><%= @drive_appointment %></span></p>
+
+  <p style="font-family: Helvetica, sans-serif;text-align: left; font-weight: normal; font-size: 80%;">
+    <%- if @drive_appointment.drive.drive_locations.present? -%>
+      Your location is: <span style="font-family: Helvetica, sans-serif; font-size: 90%; font-weight: bold;"><%= @drive_appointment.drive.drive_locations.first.complete_address %></span>
+    <%- end -%>
+  </p>
+
+  <p style="font-family: Helvetica, sans-serif;margin-top: 20px; text-align: left; font-weight: normal; font-size: 80%;"><%= @drive_appointment.drive.description.html_safe %></p>
+
+  <p style="font-family: Helvetica, sans-serif; margin-top: 20px; text-align: left; font-weight: normal; font-size: 80%;">
+    If you are experiencing any of the following, you are not eligible to give blood:
+
+    <ul>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Have taken antibiotics within the last five days</li>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Have had a piercing within the past twelve months</li>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Have had a tattoo within the last twelve months</li>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Have lived in Europe more than five months between 1980 - 1996</li>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Are pregnant or on your period</li>
+      <li style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">Are not feeling well</li>
+    </ul>
+  </p>
+
+
+  <p style="font-family: Helvetica, sans-serif; text-align: left; font-weight: normal; font-size: 80%;">If you have any questions or need to cancel your apponitment, please call the Children's Hospital of Los Angeles at: (323) 361-2441</p>
+
+  <h3 style="font-family: Helvetica, sans-serif; color: red;">Please spread the word about your blood drive.</h3>
+
+  <h4><a href="http://www.blooddrive.me" style="font-family: Helvetica, sans-serif; color: red;">http://www.blooddrive.me</a></h4>
+</div>

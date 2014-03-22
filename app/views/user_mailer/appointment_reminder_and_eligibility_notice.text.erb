@@ -1,0 +1,26 @@
+<%= @drive_appointment.drive.name %> Blood Drive Appointment Reminder
+
+Thank you for saving lives. Your appointment is:
+
+<%= @drive_appointment %>
+
+<%- if @drive_appointment.drive.drive_locations.present? -%>
+Your location is: <%= @drive_appointment.drive.drive_locations.first.complete_address %>
+<%- end -%>
+
+<%= strip_tags(@drive_appointment.drive.description.gsub(/<a href="(.*?)">(.*?)<\/a>/, '\2: \1')) %>
+
+If you are experiencing any of the following, you are not eligible to give blood:
+
+Have taken antibiotics within the last five days
+Have had a piercing within the past twelve months
+Have had a tattoo within the last twelve months
+Have lived in Europe more than five months between 1980 - 1996
+Are pregnant or on your period
+Are not feeling well
+
+If you have any questions or need to cancel your apponitment, please call the Children's Hospital of Los Angeles at: (323) 361-2441
+
+Please spread the word about your blood drive.
+
+http://www.blooddrive.me
