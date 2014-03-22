@@ -23,4 +23,10 @@ describe Drive do
 
     expect(@drive.drive_slots.available.to_a).to eq([drive_slot])
   end
+
+  it "selects the drive slots that are today" do
+    drive_slot = @drive.drive_slots.create(slot_at: Time.now)
+
+    expect(@drive.drive_slots.today.to_a).to eq([drive_slot])
+  end
 end

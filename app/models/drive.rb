@@ -6,6 +6,11 @@ class Drive < ActiveRecord::Base
       # Quick fix to close off a day
       where(t[:drive_appointments_count].lt(proxy_association.owner.total_appointments_available_per_slot).and(t[:slot_at].lt(DateTime.new(2014, 3, 22))))
     end
+
+    def today
+      t = DriveSlot.arel_table
+      where(t[:slot_at].gteq(Date.today.beginning_of_day).and(t[:slot_at].lteq(Date.today.end_of_day)))
+    end
   end
   has_many :drive_appointments, through: :drive_slots
   has_many :drive_locations, dependent: :destroy
